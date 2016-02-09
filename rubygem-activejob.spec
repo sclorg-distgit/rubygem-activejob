@@ -5,19 +5,19 @@
 %global gem_name activejob
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 4.2.5
-Release: 2%{?dist}
+Version: 4.2.5.1
+Release: 1%{?dist}
 Summary: Job framework with pluggable queues
 Group: Development/Languages
 License: MIT
 URL: http://www.rubyonrails.org
 Source0: https://rubygems.org/gems/%{gem_name}-%{version}.gem
-# git clone https://github.com/rails/rails.git && cd rails/activejob && git checkout v4.2.5
-# tar czvf activejob-4.2.5-tests.tgz test/
+# git clone https://github.com/rails/rails.git && cd rails/activejob && git checkout v4.2.5.1
+# tar czvf activejob-4.2.5.1-tests.tgz test/
 Source1: %{gem_name}-%{version}-tests.tgz
 Requires: %{?scl_prefix_ruby}ruby(release)
 Requires: %{?scl_prefix_ruby}ruby(rubygems)
-Requires: %{?scl_prefix}rubygem(activesupport) = 4.2.5
+Requires: %{?scl_prefix}rubygem(activesupport) = %{version}
 Requires: %{?scl_prefix}rubygem(globalid) >= 0.3.0
 BuildRequires: %{?scl_prefix_ruby}ruby(release)
 BuildRequires: %{?scl_prefix_ruby}rubygems-devel
@@ -101,6 +101,9 @@ popd
 %doc %{gem_instdir}/README.md
 
 %changelog
+* Mon Feb 08 2016 Dominic Cleal <dcleal@redhat.com> 4.2.5.1-1
+- Update Rails to 4.2.5.1
+
 * Fri Jan 22 2016 Dominic Cleal <dcleal@redhat.com> 4.2.5-2
 - Rebuild for sclo-ror42 SCL
 
